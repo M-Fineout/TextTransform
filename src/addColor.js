@@ -1,37 +1,38 @@
 import React from 'react';
 import './App.css';
-import Button from 'react-bootstrap';
 
-const AddColor = ({ newColor, setNewColor, colorList, setColorList, acceptedColors }) => {
+const AddColor = ({ newColor, setNewColor, colorList,
+                    setColorList, acceptedColors, }) => {
 
-    // const [colorList, setColorList] = useState(["red", "green", "blue"]);
-    // const [newColor, setNewColor] = useState("");
+
+const handleSetNewColor = () => {
+    if (colorList.includes(newColor)) {
+        alert(`${newColor} has already been added. Try another color.`);
+    } else if (!acceptedColors.includes(newColor)) {
+        alert(`${newColor} is not an acceptable color. Please try again.`);    
+    } else { 
+        setColorList([...colorList, newColor])
+        setNewColor("")
+    }
+};
 
     return (
         <div>
         <form onSubmit={(e) => {e.PreventDefault()}}>
-        <label htmlFor="addColor">Add a color</label>
+        <label className="addColorLabel" htmlFor="addColor">Add a color: </label>
         <input
+            className="addColorInput"
             type="text"
             name="addColor"
             value={newColor}
             placeholder="Enter a color "
             onChange={(e) => {setNewColor(e.target.value)}}
-            />
+            />&nbsp;
         <input
-            className="btn btn-primary"
+            className="addColorButton"
             type="button"
             value="+"
-            onClick={() => {
-                console.log(acceptedColors);
-                if (acceptedColors.includes(newColor)) {
-                    setColorList([...colorList, newColor])
-                    setNewColor("")
-                }
-                else {
-                    alert(`${newColor} is not an acceptable color. Please try again.`);
-                }
-                }}
+            onClick={handleSetNewColor}
             />
         </form>
         {/* {props.colorList.map((item) => (<p key={item}>{item}</p>))} */}

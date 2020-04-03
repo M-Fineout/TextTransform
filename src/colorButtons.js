@@ -10,7 +10,7 @@ const ColorButtons = ({props}) => {
     
     for (let i = 0; i < props.colorList.length; i++) {
         buttonBuilder.push(
-            <div>
+            <div class="colorButton">
                 <label title={props.colorList[i]} for={props.colorList[i]}>
                 <input
                     type="radio"
@@ -21,7 +21,7 @@ const ColorButtons = ({props}) => {
                     />
                     {props.colorList[i]}
                 </label>
-                <br />
+
             </div>
         );
     };

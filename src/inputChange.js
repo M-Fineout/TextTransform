@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import "./App.css";
 
 const InputChange = (props) => {
 
@@ -7,14 +7,18 @@ const InputChange = (props) => {
     // const [textColor, setTextColor] = useState("");
 
     return (
-        <div>
-            <input 
-                type="text" 
+        <div class="inputContainer">
+            <textarea 
+                className="inputBox" 
                 onChange={(e) => {props.setInputText(e.target.value)}}
                 placeholder="Enter text here"
                 />
             <br />
-            <span style={{color:props.textColor}}>{props.inputText}</span>
+            <p 
+                className="outputBox"
+                style={{color:props.textColor}}>
+                {props.inputText}
+                </p>
             </div> 
     );
 }
