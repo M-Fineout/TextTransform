@@ -23,7 +23,7 @@ function App() {
         <a target="_blank" rel="noopener noreferrer" href="https://upload.wikimedia.org/wikipedia/commons/2/2b/SVG_Recognized_color_keyword_names.svg">
            here</a>
         </span>
-      <span class="logo">textTransform</span>
+      <span className="logo">textTransform</span>
       <InputChange inputText={inputText} setInputText={setInputText} 
                    textColor={textColor} />
       <AddColor colorList={colorList} setColorList={setColorList} 

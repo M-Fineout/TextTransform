@@ -3,15 +3,17 @@ import './App.css';
 
 const ColorButtons = ({props}) => {
 
-    //const [textColor, setTextColor] = useState("");
-    //const colorList = ["red", "blue", "green"];
-
     let buttonBuilder = [];
     
     for (let i = 0; i < props.colorList.length; i++) {
+
+        // const tooltipWrapper = () => {
+        //     return <span style={{color:props.colorList[i]}}>{props.colorList[i]}</span>
+        // }
+        
         buttonBuilder.push(
-            <div class="colorButton">
-                <label title={props.colorList[i]} for={props.colorList[i]}>
+            <div key={props.colorList[i]} className="colorButton">
+                <label htmlFor={props.colorList[i]}>
                 <input
                     type="radio"
                     name="color"
@@ -20,8 +22,11 @@ const ColorButtons = ({props}) => {
                     onChange={(e) => props.setTextColor(e.target.value)}
                     />
                     {props.colorList[i]}
+                    <span className="tooltipText" 
+                          style={{color:props.colorList[i]}}>
+                          {props.colorList[i]}
+                          </span>
                 </label>
-
             </div>
         );
     };
