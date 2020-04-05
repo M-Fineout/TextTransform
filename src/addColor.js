@@ -16,12 +16,20 @@ const handleSetNewColor = () => {
     }
 };
 
+const handleReturn = (event) => {
+    const forceClick = document.getElementById("addColorButton");
+    if (event.key === "Enter") {
+        forceClick.click();
+        event.preventDefault();
+    }
+}
     return (
         <div>
         <form onSubmit={(e) => {e.PreventDefault()}}>
         <label className="addColorLabel" htmlFor="addColor">Add a color: </label>
         <input
             className="addColorInput"
+            onKeyPress={handleReturn}
             type="text"
             name="addColor"
             value={newColor}
@@ -30,6 +38,7 @@ const handleSetNewColor = () => {
             />&nbsp;
         <input
             className="addColorButton"
+            id="addColorButton"
             type="button"
             value="+"
             onClick={handleSetNewColor}
